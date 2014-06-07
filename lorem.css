@@ -23,6 +23,8 @@ body, html {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+	position: absolute;
+	z-index: 1;
 }
 #level {
 	display: none;
@@ -83,5 +85,6 @@ game {
 	font-weight: bold;
 }
 .img {
-	position: absolute;
+	opacity: 0.6;
+	z-index: 0;
 }

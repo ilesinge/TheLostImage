@@ -274,9 +274,14 @@ var H = {
 		H.set_score(0);
 		H.level = 1;
 		H.flash(ich.tpl_win(data), 'Continue', function(){window.location.reload();});
-		new H.Img('<img class="img" src="img/cernettes.jpg" />');
-		new H.Img('<img class="img" src="img/nyan_cat.gif" />');
-		new H.Img('<img class="img" src="img/pileofpoo.png" />');
+		new H.Img('<img class="object img" src="img/cernettes.jpg" width="125" height="100" />');
+		new H.Img('<img class="object img" src="img/nyan_cat.gif" width="200" height="84" />');
+		new H.Img('<img class="object img" src="img/pileofpoo.png" width="120" height="116" />');
+		new H.Img('<img class="object img" src="img/trollface.png" width="117" height="95" />');
+		new H.Img('<img class="object img" src="img/dancingbaby.gif" width="100" height="115" />');
+		new H.Img('<img class="object img" src="img/underconstruction.gif" width="505" height="37" />');
+		new H.Img('<img class="object img" src="img/acidtest.png" width="300" height="199" />');
+		new H.Img('<img class="object img" src="img/mailbox.gif" width="29" height="34" />');
 		var _win_loop = function() {
 			$.each(H.imgs, function(index, img) {
 				img.move();
@@ -614,16 +619,16 @@ H.Lorem.prototype.bleed = function(force) {
 H.Img = function(html) {
 	this.x = Math.random() * H.width;
 	this.y = Math.random() * H.height;
-	this.speed_x = ((Math.random() * 4) + 1) * H.sign_of(Math.random()-0.5);
-	this.speed_y = ((Math.random() * 4) + 1) * H.sign_of(Math.random()-0.5);
+	this.speed_x = (Math.random() * 3) * H.sign_of(Math.random()-0.5);
+	this.speed_y = (Math.random() * 3) * H.sign_of(Math.random()-0.5);
 	this.crossable = true;
 	this.object = $(html);
 	this.object.css('left', this.x);
 	this.object.css('top', this.y);
 	H.imgs.push(this);
-	$('#flash_content').append(this.object);
-	this.height = this.object.height();
+	$('#flash').append(this.object);
 	this.width = this.object.width();
+	this.height = this.object.height();
 }
 H.Img.prototype = new H.Movable;
 
