@@ -12,15 +12,17 @@ body, html {
 	font-weight: 100 !important;
 	background: #FFF;
 	color: #444;
-	text-align: center;
 	position: absolute;
+	text-align: center;
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
 	display: none;
-	overflow: auto;
 }
 #flash_content {
-	margin-top: 5%;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
 }
 #level {
 	display: none;
@@ -79,4 +81,7 @@ game {
 	bottom: 0;
 	opacity: 0.6;
 	font-weight: bold;
+}
+.img {
+	position: absolute;
 }

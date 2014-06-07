@@ -6,9 +6,10 @@
 		- Lorem Raiders
 		- The Lost Image
 	TODO:
+		- Fix win screen img placement after screen crossing
+		- win screen img transparency
 		- Lorem bleed effect and/or "level" visibility
 		- Use https://github.com/martinwells/gamecore.js !!!!!!!!!
-		- Win screen + allow to restart
 		- Show score in lose / win screens
 		- Die special effect :)
 		- Level end special effect :)
@@ -24,6 +25,12 @@
 		- Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons
 		- ... pointer, input,
 		- audio enemy, playing sound when hit
+		- enemies examples :
+		    - <iframe srcdoc="<div style='height:1000px;width:5px;'></div>" height="200" width="15" style="border:none;"></iframe>
+		    - <input type="text"/>
+		    - <select><option>Choose</option></select>
+		    - <textarea></textarea> (changing sizes !)
+		    - <audio controls>
 		- Ratio hit/shot to calculate score / other score
 		- Limited ammo + bonus
 		- Add difficulty : Lorem shoot, divide, radiate, "boom" : suddenly change size, etc.
@@ -94,6 +101,7 @@ var H = {
 	
 	shots: [],
 	enemies: [],
+	imgs: [],
 	
 	score: 0,
 	
@@ -244,8 +252,13 @@ var H = {
 		if (H.enemies.length == 0) {
 			H.stop();
 			H.clean();
-			H.level++;
-			H.play_level();
+			if ((H.level + 1) in H.levels) {
+				H.level++;
+				H.play_level();
+			}
+			else {
+				H.win();
+			}
 		}
 	},
 	
@@ -253,7 +266,24 @@ var H = {
 		H.stop();
 		H.set_score(0);
 		H.clean();
-		H.flash(ich.tpl_lose(), 'Restart',	H.play_level);
+		H.flash(ich.tpl_lose(), 'Restart', H.play_level);
+	},
+	
+	win: function() {
+		var data = {score: H.score, level: H.level};
+		H.set_score(0);
+		H.level = 1;
+		H.flash(ich.tpl_win(data), 'Continue', function(){window.location.reload();});
+		new H.Img('<img class="img" src="img/cernettes.jpg" />');
+		new H.Img('<img class="img" src="img/nyan_cat.gif" />');
+		new H.Img('<img class="img" src="img/pileofpoo.png" />');
+		var _win_loop = function() {
+			$.each(H.imgs, function(index, img) {
+				img.move();
+			});
+			window.setTimeout(_win_loop, 20);
+		}
+		_win_loop();
 	},
 	
 	clean: function() {
@@ -577,6 +607,25 @@ H.Lorem.prototype.bleed = function(force) {
 		H.add_score(H.vars.kill_score);
 	}
 }
+
+/**
+ * Win screen imgs
+ */
+H.Img = function(html) {
+	this.x = Math.random() * H.width;
+	this.y = Math.random() * H.height;
+	this.speed_x = ((Math.random() * 4) + 1) * H.sign_of(Math.random()-0.5);
+	this.speed_y = ((Math.random() * 4) + 1) * H.sign_of(Math.random()-0.5);
+	this.crossable = true;
+	this.object = $(html);
+	this.object.css('left', this.x);
+	this.object.css('top', this.y);
+	H.imgs.push(this);
+	$('#flash_content').append(this.object);
+	this.height = this.object.height();
+	this.width = this.object.width();
+}
+H.Img.prototype = new H.Movable;
 
 $(document).ready(function(){
 	H.setup();
