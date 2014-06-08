@@ -279,9 +279,10 @@ var H = {
 		new H.Img('<img class="object img" src="img/pileofpoo.png" width="120" height="116" />');
 		new H.Img('<img class="object img" src="img/trollface.png" width="117" height="95" />');
 		new H.Img('<img class="object img" src="img/dancingbaby.gif" width="100" height="115" />');
-		new H.Img('<img class="object img" src="img/underconstruction.gif" width="505" height="37" />');
+		new H.Img('<img class="object img" src="img/underconstruction.png" width="244" height="60" />');
 		new H.Img('<img class="object img" src="img/acidtest.png" width="300" height="199" />');
 		new H.Img('<img class="object img" src="img/mailbox.gif" width="29" height="34" />');
+		new H.Img('<img class="object img" src="img/broken.png" width="39" height="39" />');
 		var _win_loop = function() {
 			$.each(H.imgs, function(index, img) {
 				img.move();
@@ -619,8 +620,8 @@ H.Lorem.prototype.bleed = function(force) {
 H.Img = function(html) {
 	this.x = Math.random() * H.width;
 	this.y = Math.random() * H.height;
-	this.speed_x = (Math.random() * 3) * H.sign_of(Math.random()-0.5);
-	this.speed_y = (Math.random() * 3) * H.sign_of(Math.random()-0.5);
+	this.speed_x = (Math.random() * 3 + 0.5) * H.sign_of(Math.random()-0.5);
+	this.speed_y = (Math.random() * 3 + 0.5) * H.sign_of(Math.random()-0.5);
 	this.crossable = true;
 	this.object = $(html);
 	this.object.css('left', this.x);
