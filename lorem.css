@@ -48,8 +48,6 @@ game {
 	width: 200px;
 	font-size: 10px;
 	text-align: justify;
-	top: 500px;
-	left: 400px;
 }
 .shot {
 	font-size: 10px;
@@ -58,6 +56,12 @@ game {
 .corpse {
 	font-size: 8px;
 	color: rgba(100,0,0,0.4);
+}
+.corpse_enemy {
+	width: 200px;
+	font-size: 10px;
+	text-align: justify;
+	color: rgba(200,150,0,0.7);
 }
 #continue {
 	background-color: #003CFF;

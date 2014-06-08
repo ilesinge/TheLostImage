@@ -6,9 +6,6 @@
 		- Lorem Raiders
 		- The Lost Image
 	TODO:
-		- Fix win screen img placement after screen crossing
-		- win screen img transparency
-		- Lorem bleed effect and/or "level" visibility
 		- Use https://github.com/martinwells/gamecore.js !!!!!!!!!
 		- Show score in lose / win screens
 		- Die special effect :)
@@ -47,7 +44,7 @@ var H = {
 	
 	default_vars: {
 		shot_force: 5,
-		player_accel: 0.3,
+		player_accel: 0.4,
 		friction: 1/30,
 		player_health: 50,
 		shot_speed: 10,
@@ -602,6 +599,13 @@ H.Lorem.prototype.disappear = function() {
 	delete H.enemies[H.enemies.indexOf(this)];
 }
 H.Lorem.prototype.bleed = function(force) {
+	var corpse = $(ich.tpl_corpseenemy({html: this.object[0].innerHTML}));
+	corpse.css('left', this.x);
+	corpse.css('top', this.y);
+	$('#game').append(corpse);
+	corpse.fadeOut(1000, function(){
+		this.remove();
+	});
 	if (this.object.find(this.tags.join()).size()) {
 		H.corrupt(this.object[0], force, force);
 		this.height = this.object.height();
