@@ -25,7 +25,22 @@
                 font-family: monospace;
             }
             #social {
+                float: right;
                 text-align: right;
+                font-size: 8px;
+            }
+            #social a {
+                color: black;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            #social a.share {
+                opacity: 0.5;
+                transition: opacity 0.3s;
+            }
+            #social a.share:hover {
+                opacity: 1;
+                transition: opacity 0.3s;
             }
         </style>
     </head>
@@ -33,11 +48,15 @@
         <div id="container">
             DHTML is best viewed with Netscape Navigator
             <iframe id="frame" src="lorem.html" width="800" height="600"></iframe>
-            Controls: arrows to move, space to shoot, enter to start.
             <div id="social">
-                <!--<img src="twitter.png"/>
-                <img src="facebook.png"/>-->
+                <a class="share" onclick="window.open(this.href,'','width=450,height=400'); return false;" href="https://twitter.com/share?url=http%3A%2F%2Florem.ndre.gr&text=Free+the+<img>+people+from+the+wild+Lorem+Ipsums!&via=ilesinge&related=ilesinge&hashtags=loremipsum,game"><img src="twitter.png" /></a>
+                <a class="share" onclick="window.open(this.href,'','width=450,height=400'); return false;" href="https://www.facebook.com/sharer/sharer.php?u=lorem.ndre.gr"><img src="facebook.png"/></a>
+                
+                <p>
+                    brought to internet by <a href="https://www.twitter.com/ilesinge">@ilesinge</a>
+                </p>
             </div>
+            Controls: arrows to move, space to shoot, enter to start.
         </div>
         <script>
             document.getElementsByTagName("iframe")[0].focus();
