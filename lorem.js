@@ -38,6 +38,8 @@
 
 var H = {
 	
+    show_fps: true,
+    
 	/* game vars */
 	vars: {},
 	
@@ -60,6 +62,8 @@ var H = {
 	},
 	
 	level: 1,
+	
+	time: 0,
 	
 	levels: {
 		1: {
