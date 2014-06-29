@@ -1,117 +1,117 @@
 body, html {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	font-family: monospace;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: monospace;
 }
 #flash {
-	font-size: 28px;
-	font-family: 'Lato', sans-serif;
-	font-weight: 100 !important;
-	background: #FFF;
-	position: absolute;
-	text-align: center;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-	display: none;
+    font-size: 28px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100 !important;
+    background: #FFF;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: none;
 }
 #flash_content {
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	position: absolute;
-	z-index: 1;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
 }
 #level {
-	display: none;
-	font-size: 30px;
-	font-family: 'Lato', sans-serif;
-	text-align: center;
-	margin-top: 100px;
+    display: none;
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin-top: 100px;
 }
 #level_description {
-	font-size: 24px;
+    font-size: 24px;
 }
 game {
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 .object {
-	position: absolute;
+    position: absolute;
 }
 .enemy {
-	width: 200px;
-	font-size: 10px;
-	text-align: justify;
+    width: 200px;
+    font-size: 10px;
+    text-align: justify;
 }
 .scroll {
-	display: inline-block;
+    display: inline-block;
 }
 .scroll.x {
     overflow-x: scroll;
-	width: 400px;
+    width: 400px;
 }
 .scroll.y {
     overflow-y: scroll;
-	height: 400px;
+    height: 400px;
 }
 .scroll.x .bar {
-	height: 1px;
-	width: 401px;
+    height: 1px;
+    width: 401px;
 }
 .scroll.y .bar {
-	height: 401px;
-	width: 1px;
+    height: 401px;
+    width: 1px;
 }
 .shot {
-	font-size: 10px;
-	padding: 0;
+    font-size: 10px;
+    padding: 0;
 }
 .corpse {
-	font-size: 8px;
-	color: rgba(100,0,0,0.4);
+    font-size: 8px;
+    color: rgba(100,0,0,0.4);
 }
 .corpse_enemy {
-	width: 200px;
-	font-size: 10px;
-	text-align: justify;
-	color: rgba(200,150,0,0.7);
+    width: 200px;
+    font-size: 10px;
+    text-align: justify;
+    color: rgba(200,150,0,0.7);
 }
 #continue {
-	background-color: #003CFF;
-	color: #FFF;
-	font-size: 20px;
-	border: 0;
-	padding: 15px 30px;
-	cursor: pointer;
-	border-radius: 10px;
-	outline: none;
+    background-color: #003CFF;
+    color: #FFF;
+    font-size: 20px;
+    border: 0;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    outline: none;
 }
 #health {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	opacity: 0.6;
-	background-color: green;
-	width: 0px;
-	height: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    background-color: green;
+    width: 0px;
+    height: 10px;
 }
 #score {
-	position: absolute;
-	bottom: 0;
-	opacity: 0.6;
-	font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.6;
+    font-weight: bold;
 }
 .img {
-	opacity: 0.4;
-	z-index: 0;
+    opacity: 0.4;
+    z-index: 0;
 }
 #final_score {
-	font-size: 22px;
+    font-size: 22px;
 }
 #FPS {
     opacity: 0.8;
