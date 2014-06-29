@@ -7,7 +7,6 @@
         - The Lost Image
     TODO:
         - use https://github.com/raphaelbastide/Terminal-Grotesque or https://github.com/raphaelbastide/steps-mono ?
-        - Show score in lose screen
         - Die special effect :)
         - Level end special effect :)
         - Win special effect :)
@@ -19,8 +18,6 @@
         - Random Lorem size
         - Shooting lorems (dolor bullets)
         - Missing bullets reduce score (5)
-        - Add scrollbar enemy or obstacle -- rotating scrollbar ? :)
-        - Levels ! Lorem number, lorem complexity, speed, size, total health, etc. init function per level
         - Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons
         - ... pointer, input,
         - audio enemy, playing sound when hit
