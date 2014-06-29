@@ -92,3 +92,10 @@ game {
 	opacity: 0.4;
 	z-index: 0;
 }
+#final_score {
+	font-size: 22px;
+}
+#FPS {
+    opacity: 0.8;
+    font-size: 24px;
+}

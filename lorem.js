@@ -6,7 +6,7 @@
 		- Lorem Raiders
 		- The Lost Image
 	TODO:
-		- Show score in lose / win screens
+		- Show score in lose screen
 		- Die special effect :)
 		- Level end special effect :)
 		- Win special effect :)
