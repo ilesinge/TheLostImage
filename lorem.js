@@ -160,8 +160,8 @@ var H = {
         H.play_level();
     },
     
-    // 12 = Ctrl, 88 = x, 32 = space, 87 = w
-    keys: {88: false, 37: false, 38: false, 39: false, 40: false},
+    keymap: {space: 32, left: 37, up: 38, right: 39, down: 40},
+    keys: {},
     
     set_score: function(score) {
         H.score = score;
@@ -176,7 +176,8 @@ var H = {
         $('#flash').fadeIn(2000);
         
         var _continue_key = function(e){
-            if (e.which == 32) {
+            // Enter key
+            if (e.which == 13) {
                 _continue();
             }
         }
@@ -184,10 +185,8 @@ var H = {
             $('#flash').fadeOut();
             $('#flash_content').html('');
             $(document).unbind('keypress', _continue_key);
-            $(document).keypress(H.cancel_space);
             callback();
         };
-        $(document).unbind('keypress', H.cancel_space);
         $(document).keypress(_continue_key);
         $('#continue').click(_continue);
     },
@@ -219,32 +218,35 @@ var H = {
         element.innerHTML = h;
     },
     
+    is_pressed: function(key) {
+        return H.keys[H.keymap[key]];
+    },
+    
     controls: function() {
         var accel_x = 0;
         var accel_y = 0;
-        if (H.keys[38]) {
-            // Up
+        if (H.is_pressed('up')) {
             accel_y -= H.vars.player_accel;
         }
-        if (H.keys[40]) {
-            // Down
+        if (H.is_pressed('down')) {
             accel_y += H.vars.player_accel;
         }
-        if (H.keys[37]) {
-            // Left
+        if (H.is_pressed('left')) {
             accel_x -= H.vars.player_accel;
         }
-        if (H.keys[39]) {
-            // Right
+        if (H.is_pressed('right')) {
             accel_x += H.vars.player_accel;
         }
         H.player.accel(accel_x, accel_y);
-        if (H.keys[88]) {
+        if (H.is_pressed('space')) {
             H.player.shoot();
         }
     },
     
     set_keys: function() {
+        for (key in H.keymap) {
+            H.keys[H.keymap[key]] = false;
+        }
         $(document).keydown(function(event){
             // Prevent arrow scrolling
             if (event.keyCode in H.keys) {
@@ -292,12 +294,6 @@ var H = {
     
     stop: function() {
         H.stopped = true;
-    },
-    
-    cancel_space: function(e){
-        if (e.which == 32) {
-            e.preventDefault();
-        }
     },
     
     start: function() {
@@ -545,8 +541,8 @@ H.Crossable = H.Movable.extend('H.Crossable', {},
                 this.object.css('top', H.height+'px');
             }
             if (this.y > H.height) {
-                    this.y = -this.height;
-                    this.object.css('top', '-'+this.height+'px');
+                this.y = -this.height;
+                this.object.css('top', '-'+this.height+'px');
             }
             if (this.x > H.width) {
                 this.x = -this.width;
