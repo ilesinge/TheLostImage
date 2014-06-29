@@ -49,6 +49,25 @@ game {
 	font-size: 10px;
 	text-align: justify;
 }
+.scroll {
+	display: inline-block;
+}
+.scroll.x {
+    overflow-x: scroll;
+	width: 400px;
+}
+.scroll.y {
+    overflow-y: scroll;
+	height: 400px;
+}
+.scroll.x .bar {
+	height: 1px;
+	width: 401px;
+}
+.scroll.y .bar {
+	height: 401px;
+	width: 1px;
+}
 .shot {
 	font-size: 10px;
 	padding: 0;

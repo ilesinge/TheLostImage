@@ -56,6 +56,11 @@ var H = {
 		lorem_start_max_speed: 6,
 		lorem_min_complexity: 0,
 		lorem_max_complexity: 4,
+		scrollbar_start_min_speed: 2,
+		scrollbar_start_max_speed: 5,
+		scrollbar_health: 10,
+		scrollbar_min_size: 300,
+		scrollbar_max_size: 600,
 		player_max_speed: 8,
 		hit_score: 10,
 		kill_score: 100
@@ -85,6 +90,17 @@ var H = {
 				new H.Lorem;
 				new H.Lorem;
 				new H.Lorem;
+				new H.Lorem;
+			}
+		},
+		3: {
+			vars: {},
+			description: "What are those walls?",
+			init: function() {
+				new H.Scrollbar;
+				new H.Scrollbar;
+				new H.Scrollbar;
+				new H.Scrollbar;
 				new H.Lorem;
 				new H.Lorem;
 				new H.Lorem;
