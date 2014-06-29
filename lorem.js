@@ -6,6 +6,8 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
+        - Fix Twitter card <img> and <button> not showing up !
+        - Use real time instead of frame supposed time (speed based on FPS)
         - use https://github.com/raphaelbastide/Terminal-Grotesque or https://github.com/raphaelbastide/steps-mono ?
         - Die special effect :)
         - Level end special effect :)
