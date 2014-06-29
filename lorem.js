@@ -6,23 +6,25 @@
 		- Lorem Raiders
 		- The Lost Image
 	TODO:
+		- use https://github.com/raphaelbastide/Terminal-Grotesque or https://github.com/raphaelbastide/steps-mono ?
 		- Show score in lose screen
 		- Die special effect :)
 		- Level end special effect :)
 		- Win special effect :)
+		- Firefox performance
 		- ? Bug: animation flashes objects ?
 		- ? Remove jQuery ?
-		- Analytics + game analytics (events)
+		- Game analytics (events)
 		- Enemies appearing during game
 		- Random Lorem size
-		- Shots deviate Lorems
+		- Shooting lorems (dolor bullets)
+		- Missing bullets reduce score (5)
 		- Add scrollbar enemy or obstacle -- rotating scrollbar ? :)
 		- Levels ! Lorem number, lorem complexity, speed, size, total health, etc. init function per level
 		- Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons
 		- ... pointer, input,
 		- audio enemy, playing sound when hit
 		- enemies examples :
-		    - <iframe srcdoc="<div style='height:1000px;width:5px;'></div>" height="200" width="15" style="border:none;"></iframe>
 		    - <input type="text"/>
 		    - <select><option>Choose</option></select>
 		    - <textarea></textarea> (changing sizes !)
