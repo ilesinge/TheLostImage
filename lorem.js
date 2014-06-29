@@ -6,7 +6,6 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
-        - Retry to use SPACE as shoot button (Enter to start) (css bug)
         - use https://github.com/raphaelbastide/Terminal-Grotesque or https://github.com/raphaelbastide/steps-mono ?
         - Die special effect :)
         - Level end special effect :)

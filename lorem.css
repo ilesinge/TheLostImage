@@ -32,6 +32,9 @@ body, html {
     font-family: 'Lato', sans-serif;
     text-align: center;
     margin-top: 100px;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 #level_description {
     font-size: 24px;
