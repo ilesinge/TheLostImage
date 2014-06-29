@@ -34,6 +34,13 @@
 		- Bosses : canvases (absorbs shots), colorize
 		- Boss : huge lorem
 		- Share
+	ANALYTICS:
+		- Level duration:
+			var metricValue = '123';
+			ga('set', 'metric1', metricValue);
+		- Score:
+			var metricValue = '123';
+			ga('set', 'metric2', metricValue);
 */
 
 var H = {
@@ -303,6 +310,7 @@ var H = {
 		if (!H.stopped && H.enemies.length == 0) {
 			H.stop();
 			H.clean();
+			H.track_level_end();
 			if ((H.level + 1) in H.levels) {
 				H.level++;
 				H.play_level();
@@ -315,6 +323,7 @@ var H = {
 	
 	lose: function() {
 		H.stop();
+		H.track_lose();
 		var data = {score: H.score, level: H.level};
 		H.set_score(0);
 		H.clean();
@@ -322,6 +331,7 @@ var H = {
 	},
 	
 	win: function() {
+		H.track_metrics('/win');
 		var data = {score: H.score, level: H.level};
 		H.set_score(0);
 		H.level = 1;
