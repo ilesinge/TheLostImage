@@ -47,7 +47,7 @@
 
 var H = {
 	
-    show_fps: true,
+    show_fps: false,
     
 	/* game vars */
 	vars: {},
