@@ -6,8 +6,7 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
-        - Fix Twitter card <img> and <button> not showing up !
-        - Use real time instead of frame supposed time (speed based on FPS)
+        - single shot by key pressed (maybe can use space again to shoot)
         - use https://github.com/raphaelbastide/Terminal-Grotesque or https://github.com/raphaelbastide/steps-mono ?
         - Die special effect :)
         - Level end special effect :)
@@ -74,6 +73,8 @@ var H = {
         kill_score: 100
     },
     
+    target_frame_time: 25,
+    
     level: 1,
     
     time: 0,
@@ -128,6 +129,9 @@ var H = {
     flash_screen: null,
     fps: null,
 
+    /**
+     * Objects
+     **/
     shots: [],
     enemies: [],
     imgs: [],
@@ -263,22 +267,38 @@ var H = {
     
     loop: function() {
         if (!H.stopped) {
+            window.setTimeout(H.loop, H.target_frame_time);
+            H.calc_fps_ratio();
             H.controls();
             H.move();
             H.check_win();
-            window.setTimeout(H.loop, 20);
         }
+        
         if (H.show_fps) {
-            H.frames++;
-            if (H.frames == 10) {
-                var time = new Date().getTime();
-                var diff = time - H.last_time;
-                var FPS = Math.round(1000 / (diff/10));
-                H.fps.html('FPS: '+FPS);
-                H.last_time = time;
-                H.frames = 0;
-            }
+            H.calc_fps();
         }
+    },
+    
+    calc_fps: function() {
+        H.frames++;
+        if (H.frames == 10) {
+            var time = new Date().getTime();
+            var diff = time - H.last_time;
+            var FPS = Math.round(1000 / (diff/10));
+            H.fps.html('FPS: '+FPS);
+            H.last_time = time;
+            H.frames = 0;
+        }
+    },
+    
+    calc_fps_ratio: function() {
+        var time = new Date().getTime();
+        if (H.last_frame_time) {
+            H.fps_ratio = (time - H.last_frame_time) / H.target_frame_time;
+        } else {
+            H.fps_ratio = 1;
+        }
+        H.last_frame_time = time;
     },
     
     move: function() {
@@ -299,6 +319,7 @@ var H = {
     
     start: function() {
         H.stopped = false;
+        H.last_frame_time = 0;
         H.init();
         H.loop();
     },
@@ -469,8 +490,8 @@ H.Movable = gamecore.Base.extend('H.Movable',
             if (this.is_out_of_bounds()) {
                 this.cross_screen();
             }
-            this.x += this.speed_x;
-            this.y += this.speed_y;
+            this.x += this.speed_x * H.fps_ratio;
+            this.y += this.speed_y * H.fps_ratio;
             this.object[0].style.top = this.y;
             this.object[0].style.left = this.x;
         },
