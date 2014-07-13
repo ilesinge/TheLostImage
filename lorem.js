@@ -161,7 +161,7 @@ var H = {
         H.play_level();
     },
     
-    keymap: {space: 32, left: 37, up: 38, right: 39, down: 40},
+    keymap: {space: 32, left: 37, up: 38, right: 39, down: 40, x: 88},
     keys: {},
     
     set_score: function(score) {
@@ -239,7 +239,7 @@ var H = {
             accel_x += H.vars.player_accel;
         }
         H.player.accel(accel_x, accel_y);
-        if (H.is_pressed('space')) {
+        if (H.is_pressed('x')) {
             H.player.shoot();
         }
     },
