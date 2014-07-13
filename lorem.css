@@ -24,6 +24,7 @@ body, html {
 #flash_content {
     height: 100%;
     width: 100%;
+    line-height: 32px;
     overflow: hidden;
     position: absolute;
     z-index: 1;
