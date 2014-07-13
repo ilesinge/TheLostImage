@@ -82,16 +82,12 @@ var H = {
             init: function() {
                 new H.Lorem;
                 new H.Lorem;
-                new H.Lorem;
-                new H.Lorem;
             }
         },
         2: {
             vars: {},
             description: "The Lorems regroup...",
             init: function() {
-                new H.Lorem;
-                new H.Lorem;
                 new H.Lorem;
                 new H.Lorem;
                 new H.Lorem;
@@ -106,8 +102,6 @@ var H = {
                 new H.Scrollbar;
                 new H.Scrollbar;
                 new H.Scrollbar;
-                new H.Lorem;
-                new H.Lorem;
                 new H.Lorem;
                 new H.Lorem;
             }
