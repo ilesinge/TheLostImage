@@ -7,19 +7,15 @@
         - The Lost Image
     TODO:
         - single shot by key pressed (maybe can use space again to shoot)
-        - use https://github.com/raphaelbastide/Terminal-Grotesque or https://github.com/raphaelbastide/steps-mono ?
         - Die special effect :)
         - Level end special effect :)
         - Win special effect :)
-        - Firefox performance
-        - ? Bug: animation flashes objects ?
-        - ? Remove jQuery ?
         - Game analytics (events)
         - Enemies appearing during game
         - Random Lorem size
+        - Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons
         - Shooting lorems (dolor bullets)
         - Missing bullets reduce score (5)
-        - Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons
         - ... pointer, input,
         - audio enemy, playing sound when hit
         - enemies examples :

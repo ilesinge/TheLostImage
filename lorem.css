@@ -5,12 +5,14 @@ body, html {
     width: 100%;
     overflow: hidden;
     font-family: monospace;
+    color: white;
+    background: black;
 }
 #flash {
-    font-size: 28px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 100 !important;
-    background: #FFF;
+    font-size: 32px;
+    font-family: 'Terminal Grotesque', monospace;
+    color: white;
+    background-color: black;
     position: absolute;
     top: 0;
     text-align: center;
@@ -29,7 +31,7 @@ body, html {
 #level {
     display: none;
     font-size: 30px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Terminal Grotesque', monospace;
     text-align: center;
     margin-top: 100px;
     position: absolute;
@@ -77,7 +79,7 @@ body, html {
 }
 .corpse {
     font-size: 8px;
-    color: rgba(100,0,0,0.4);
+    color: rgba(255,0,0,0.5);
 }
 .corpse_enemy {
     width: 200px;
@@ -86,13 +88,13 @@ body, html {
     color: rgba(200,150,0,0.7);
 }
 #continue {
-    background-color: #003CFF;
-    color: #FFF;
+    font-family: 'Terminal Grotesque', monospace;
+    background-color: white;
+    color: black;
     font-size: 20px;
     border: 0;
     padding: 15px 30px;
     cursor: pointer;
-    border-radius: 10px;
     outline: none;
 }
 #health {
