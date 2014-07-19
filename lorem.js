@@ -13,11 +13,11 @@
         - Game analytics (events)
         - Enemies appearing during game
         - Random Lorem size
-        - Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons
+        - Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons : ♥ ( http://en.wikipedia.org/wiki/Wgl4 )
         - Shooting lorems (dolor bullets)
         - Missing bullets reduce score (5)
         - ... pointer, input,
-        - audio enemy, playing sound when hit
+        - audio enemy, playing sound when hit OR hitting player when playing sound :)
         - enemies examples :
             - <input type="text"/>
             - <select><option>Choose</option></select>
