@@ -6,6 +6,8 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
+	- better loop : inspire from https://github.com/mozilla/mortar-game-stub/blob/master/js/app.js
+		- https://developer.mozilla.org/fr/docs/Web/API/window.requestAnimationFrame
         - single shot by key pressed (maybe can use space again to shoot)
         - Die special effect :)
         - Level end special effect :)
