@@ -107,6 +107,20 @@ var H = {
                 new H.Lorem;
                 new H.Lorem;
             }
+        },
+        4: {
+            vars: {},
+            description: "The mayhem",
+            init: function() {
+                new H.Scrollbar;
+                new H.Scrollbar;
+                new H.Scrollbar;
+                new H.Scrollbar;
+                new H.Scrollbar;
+                new H.Scrollbar;
+                new H.Scrollbar;
+                new H.Scrollbar;
+            }
         }
     },
     
