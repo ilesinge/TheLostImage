@@ -1,4 +1,4 @@
-/**
+/*
     NAME:
         - HTML Invaders
         - Lorem Overlords
@@ -6,10 +6,7 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
-        - single shot by key pressed (maybe can use space again to shoot)
-        - Die special effect :)
-        - Level end special effect :)
-        - Win special effect :)
+        - Single shot by key pressed (maybe can use space again to shoot)
         - Game analytics (events)
         - Enemies appearing during game
         - Random Lorem size
@@ -22,7 +19,7 @@
             - <input type="text"/>
             - <select><option>Choose</option></select>
             - <textarea></textarea> (changing sizes !)
-            - <audio controls>
+            - <audio controls />
         - Ratio hit/shot to calculate score / other score
         - Limited ammo + bonus
         - Add difficulty : Lorem shoot, divide, radiate, "boom" : suddenly change size, etc.
@@ -51,6 +48,8 @@ var requestAnimFrame = (function() {
 })();
 
 var H = {
+    
+    stopped: false,
     
     show_fps: false,
     
@@ -357,10 +356,42 @@ var H = {
     lose: function() {
         H.stop();
         H.track_lose();
-        var data = {score: H.score, level: H.level};
         H.set_score(0);
         H.clean();
-        H.flash(ich.tpl_lose(data), 'Restart', H.play_level);
+        jQuery.get('lorem.js', function(script) {
+            script = script.replace(/(?:\/\*(?:[\s\S]*?)\*\/)|(?:([\s;])+\/\/(?:.*)$)/gm, '');
+            var start = Math.floor(Math.random()*(script.length - 12000))
+            script = script.substring(start, start + 12000);
+            var _destroy = function(stamp) {
+                if (H.stopped) {
+                    if (!(Math.floor(stamp) % 4)) {
+                        var b = $('#code_lose');
+                        if (b) {
+                            var h = b.text();
+                            var l = h.length;
+                            var c = function (l) {
+                                return Math.floor((Math.random() * l) + 1);
+                            }
+                            var x1 = c(l);
+                            var x2 = c(l);
+                            var x3 = c(l);
+                            var r = function(s, i, c) {
+                                return s.substr(0, i) + c + s.substr(i + 1);
+                            }
+                            var t = h[x1];
+                            h = r(h, x1, h[x2]);
+                            h = r(h, x2, t);
+                            h = r(h, x3, '');
+                            b.text(h);
+                        }
+                    }
+                    requestAnimFrame(_destroy);
+                }
+            }
+            requestAnimFrame(_destroy);
+            var data = {score: H.score, level: H.level, script: script};
+            H.flash(ich.tpl_lose(data), 'Restart', H.play_level);
+        }, 'html');
     },
     
     win: function() {
