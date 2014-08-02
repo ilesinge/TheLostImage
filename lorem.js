@@ -6,6 +6,7 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
+        - Add timestamp to the main frame link to force refresh
         - Single shot by key pressed (maybe can use space again to shoot)
         - Game analytics (events)
         - Enemies appearing during game
