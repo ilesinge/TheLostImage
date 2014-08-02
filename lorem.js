@@ -6,8 +6,6 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
-	- better loop : inspire from https://github.com/mozilla/mortar-game-stub/blob/master/js/app.js
-		- https://developer.mozilla.org/fr/docs/Web/API/window.requestAnimationFrame
         - single shot by key pressed (maybe can use space again to shoot)
         - Die special effect :)
         - Level end special effect :)
@@ -40,6 +38,17 @@
             var metricValue = '123';
             ga('set', 'metric2', metricValue);
 */
+
+var requestAnimFrame = (function() {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback){
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
 
 var H = {
     
@@ -273,11 +282,11 @@ var H = {
     
     loop: function() {
         if (!H.stopped) {
-            window.setTimeout(H.loop, H.target_frame_time);
             H.calc_fps_ratio();
             H.controls();
             H.move();
             H.check_win();
+            requestAnimFrame(H.loop);
         }
         
         if (H.show_fps) {
@@ -373,7 +382,7 @@ var H = {
             H.each(H.imgs, function(index, img) {
                 img.move();
             });
-            window.setTimeout(_win_loop, 20);
+            requestAnimFrame(_win_loop);
         }
         _win_loop();
     },
