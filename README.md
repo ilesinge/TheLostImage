@@ -16,7 +16,9 @@ But that time has come to an end. Wild Lorem Ipsums mysteriously started to atta
 
 You are imgs' last hope. Grab your submit buttons and bring peace back to Web Land!
 
-Credits
--------
-
-Thanks to Raphael Bastide for the Terminal Grotesque font: https://github.com/raphaelbastide/Terminal-Grotesque
+Uses
+----
+- Terminal Grotesque font: https://github.com/raphaelbastide/Terminal-Grotesque
+- ICanHaz.js for templating: https://github.com/HenrikJoreteg/ICanHaz.js
+- gamecore.js for the classes: https://github.com/martinwells/gamecore.js
+- jQuery just because I'm crazy
