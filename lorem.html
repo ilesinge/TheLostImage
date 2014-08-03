@@ -47,7 +47,10 @@
         </script>
         
         <script id="tpl_player" type="text/html">
-            <img src="404" id="player" class="object"/>
+            <div id="player" class="object">
+                <div class="object effect"></div>
+                <img src="404"/>
+            </div>
         </script>
         
         <script id="tpl_lorem" type="text/html">
@@ -78,6 +81,10 @@
         <script id="tpl_level" type="text/html">
             Level {{ level }}
             <div id="level_description">{{{ description }}}</div>
+        </script>
+        
+        <script id="tpl_bonus" type="text/html">
+            <div class="object bonus">{{ logo }}</div>
         </script>
         
         <script>

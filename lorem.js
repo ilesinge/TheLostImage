@@ -150,6 +150,7 @@ var H = {
     shots: [],
     enemies: [],
     imgs: [],
+    bonuses: [],
     
     score: 0,
     
@@ -427,8 +428,12 @@ var H = {
         H.each(H.enemies, function(index, enemy) {
             enemy.disappear();
         });
+        H.each(H.bonuses, function(index, bonus) {
+            bonus.disappear();
+        });
         H.shots = [];
         H.enemies = [];
+        H.bonus = [];
     },
     
     init: function() {
@@ -691,6 +696,11 @@ H.Player = H.Crossable.extend('H.Player', {},
                     }
                 }
             });
+            H.each(H.bonuses, function(index, bonus) {
+                if (that.collide(bonus)) {
+                    bonus.use();
+                }
+            });
         },
         
         disappear: function() {
@@ -699,12 +709,21 @@ H.Player = H.Crossable.extend('H.Player', {},
         },
         
         bleed: function() {
-            var corpse = $(ich.tpl_corpse({text: ich.tpl_player()}));
+            var corpse = $(ich.tpl_corpse({text: '<img src="404" />'}));
             corpse.css('left', this.x - 50);
             corpse.css('top', this.y + 10);
             H.game.append(corpse);
             corpse.fadeOut(2000, function(){
                 this.remove();
+            });
+        },
+        
+        effect: function(name) {
+            var effect = this.object.children('.effect');
+            effect.addClass(name).animate({opacity: 1}, 500, function() {
+                effect.animate({opacity: 0}, 1500, function(){
+                   effect.removeClass(name); 
+                });
             });
         }
     }
@@ -807,6 +826,7 @@ H.Lorem = H.Crossable.extend('H.Lorem', {},
             }
             else {
                 this.disappear();
+                new H.Bonus('health', (this.x + this.width / 2), (this.y + this.height / 2));
                 H.add_score(H.vars.kill_score);
             }
         }
@@ -901,6 +921,39 @@ H.Img = H.Crossable.extend('H.Img', {},
             this.speed_y = (Math.random() * 3 + 0.5) * H.sign_of(Math.random()-0.5);
             this.object = $(html);
             this.appear();
+        }
+    }
+);
+
+H.Bonus = H.Movable.extend('H.Bonus', {},
+    {
+        collection: 'bonuses',
+        type: 'health',
+        logos: {'health': '♥'},
+        
+        init: function(type, x, y) {
+            this.type = type;
+            this.x = x;
+            this.y = y;
+            this.object = $(ich.tpl_bonus({'logo': this.logos[this.type]}));
+            this.appear();
+            this.object.fadeOut(3000, function(){
+                this.remove();
+            });
+        },
+        
+        use: function () {
+            switch (this.type) {
+                case 'health':
+                    if (H.vars.player_health < H.player.health + 10) {
+                        H.player.set_health(H.vars.player_health);
+                    }
+                    else {
+                        H.player.set_health(H.player.health + 10);
+                    }
+                    H.player.effect('health');
+            }
+            this.disappear();
         }
     }
 );
