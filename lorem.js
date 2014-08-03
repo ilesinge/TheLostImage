@@ -6,12 +6,12 @@
         - Lorem Raiders
         - The Lost Image
     TODO:
-        - Add timestamp to the main frame link to force refresh
+        - Scrollbar die effect
+        - Random Bonuses (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons : ♥ ( http://en.wikipedia.org/wiki/Wgl4 )
         - Single shot by key pressed (maybe can use space again to shoot)
         - Game analytics (events)
         - Enemies appearing during game
         - Random Lorem size
-        - Upgrades (new weapons, weapon speed, invicibility, move accross scrollbars, etc. via (emojis) or icons : ♥ ( http://en.wikipedia.org/wiki/Wgl4 )
         - Shooting lorems (dolor bullets)
         - Missing bullets reduce score (5)
         - ... pointer, input,
@@ -24,17 +24,8 @@
         - Ratio hit/shot to calculate score / other score
         - Limited ammo + bonus
         - Add difficulty : Lorem shoot, divide, radiate, "boom" : suddenly change size, etc.
-        - Base lorem damage on complexity
         - Bosses : canvases (absorbs shots), colorize
         - Boss : huge lorem
-        - Share
-    ANALYTICS:
-        - Level duration:
-            var metricValue = '123';
-            ga('set', 'metric1', metricValue);
-        - Score:
-            var metricValue = '123';
-            ga('set', 'metric2', metricValue);
 */
 
 var requestAnimFrame = (function() {
