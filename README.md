@@ -3,7 +3,7 @@ The Lost Image
 
 Just a simple and fun experiment at making a web game.
 
-http://lorem.ndre.gr/
+https://lorem.ndre.gr/
 
 Idea
 ----
